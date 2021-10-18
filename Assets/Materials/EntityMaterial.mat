@@ -42,6 +42,7 @@ Material:
     m_Ints: []
     m_Floats:
     - DarkestValue: 0
+    - EnableCulling: 0
     - Intensity: 0.8
     m_Colors:
     - Vector2: {r: 0, g: 0, b: 0, a: 0}
