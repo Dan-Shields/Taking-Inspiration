@@ -51,8 +51,6 @@ namespace Entities {
 			string prefix = this.SpritePrefix == "" ? "" : $"{this.SpritePrefix}_";
 			string spriteName = $"{prefix}{this.GetNextSpriteName()}";
 
-			Debug.Log(spriteName);
-
 			Sprite sprite = this.Atlas.GetSprite(spriteName);
 
             if (!sprite) {

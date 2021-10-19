@@ -9,6 +9,13 @@ namespace Entities {
         private MoveState moveState = MoveState.Idle;
         private MoveDirection moveDirection = MoveDirection.Down;
 
+        private Vector3 startPosition;
+
+        void Awake()
+        {
+            this.startPosition = this.transform.position;
+        }
+
         protected override string GetNextSpriteName() {
             string direction = this.moveDirection.ToString().ToLower();
             string state = this.moveState.ToString().ToLower();
@@ -34,6 +41,14 @@ namespace Entities {
                 }
 
                 this.moveState = MoveState.Walk;
+            }
+        }
+
+        public void OnTriggerEnter2D(Collider2D collider)
+        {           
+            if (collider.tag == "Detector")
+            {
+                this.transform.position = this.startPosition;
             }
         }
     }
