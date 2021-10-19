@@ -14,8 +14,8 @@ TagManager:
   - Level
   - Entities
   - PlayerVision
-  - 
-  - 
+  - EnemyVision
+  - VisionBlocker
   - 
   - 
   - 
