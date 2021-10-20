@@ -45,10 +45,14 @@ namespace Entities {
         }
 
         public void OnTriggerEnter2D(Collider2D collider)
-        {           
+        {
             if (collider.tag == "Detector")
             {
                 this.OnDetection();
+            }
+            else if (collider.tag == "Finish")
+            {
+                Debug.Log("Sorry Mario - the princess is in another castle!");
             }
         }
 
