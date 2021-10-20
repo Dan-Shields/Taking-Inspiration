@@ -48,8 +48,13 @@ namespace Entities {
         {           
             if (collider.tag == "Detector")
             {
-                this.transform.position = this.startPosition;
+                this.OnDetection();
             }
+        }
+
+        public void OnDetection()
+        {
+            this.transform.position = this.startPosition;
         }
     }
 

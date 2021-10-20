@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4375199656280676159}
   - component: {fileID: 4375199656280676156}
   - component: {fileID: 4375199656280676157}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: VisionBlocker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
