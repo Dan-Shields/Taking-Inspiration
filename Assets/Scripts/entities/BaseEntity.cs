@@ -32,7 +32,7 @@ namespace Entities {
             this.spriteRenderer.sprite = sprite;
         }
 
-		void FixedUpdate()
+		protected virtual void FixedUpdate()
         {
             Vector2 newPosition = this.rigidbody.position + (this.moveVector * Time.fixedDeltaTime);
             this.rigidbody.MovePosition(newPosition);

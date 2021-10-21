@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: Floor_Blue_
+  m_Script: {fileID: 11500000, guid: 5155f23803f4278418e891c6561353fd, type: 3}
+  m_Name: Floor_Slippy
   m_EditorClassIdentifier: 
   m_Sprite: {fileID: -2281657408769596110, guid: b52393e9230c3994abfd1a69ff077149, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -31,6 +31,6 @@ MonoBehaviour:
     e31: 0
     e32: 0
     e33: 1
-  m_InstancedGameObject: {fileID: 0}
+  m_InstancedGameObject: {fileID: 5420514755297712076, guid: e28bc8f80ac98714a94be683a468a0cc, type: 3}
   m_Flags: 1
   m_ColliderType: 0
