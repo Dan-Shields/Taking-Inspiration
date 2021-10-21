@@ -1,6 +1,7 @@
+using System.Collections.Generic;
 using UnityEngine;
-using Entities;
 using UnityEngine.Experimental.Rendering.Universal;
+using Entities;
 
 
 namespace Lights
@@ -32,23 +33,32 @@ namespace Lights
         {
             if (!this.inited) return;
 
-            Vector2 deltaVector = this.playerController.transform.position - this.transform.position;
+            Vector2 playerLocalPos = this.playerController.transform.localPosition;
 
-            float angleToPlayer = Vector2.Angle(this.transform.up, deltaVector);
+            foreach (Vector2 localPos in this.playerController.ColliderTestPositionsLocal)
+            {
+                Vector3 worldPos = this.playerController.transform.TransformPoint(localPos);
 
-            //Debug.Log(angleToPlayer);
-            //Debug.Log(deltaVector.magnitude);
-            Debug.Log(this.Light.pointLightInnerRadius);
-            Debug.Log(this.Light.pointLightInnerAngle);
-
-            if (deltaVector.magnitude <= this.Light.pointLightInnerRadius && angleToPlayer <= this.Light.pointLightInnerAngle / 2) {
-                int hitCount = Physics2D.LinecastNonAlloc(this.transform.position, this.playerController.transform.position, this.linecastHits, this.linecastLayerFilter);
-
-                if (hitCount > 0 && this.linecastHits[0].transform.tag == "Player")
+                if (this.CheckPlayerIsLitAtPoint(worldPos))
                 {
                     this.playerController.OnDetection();
+                    break;
                 }
             }
+        }
+
+        bool CheckPlayerIsLitAtPoint(Vector3 point)
+        {
+            Vector2 deltaVector = point - this.transform.position;
+            float angleToPoint = Vector2.Angle(this.transform.up, deltaVector);
+
+            if (deltaVector.magnitude <= this.Light.pointLightInnerRadius && angleToPoint <= this.Light.pointLightInnerAngle / 2) {
+                int hitCount = Physics2D.LinecastNonAlloc(this.transform.position, point, this.linecastHits, this.linecastLayerFilter);
+
+                if (hitCount > 0 && this.linecastHits[0].transform.tag == "Player") return true;
+            }
+
+            return false;
         }
     }
 }
