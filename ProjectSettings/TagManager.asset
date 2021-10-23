@@ -16,8 +16,8 @@ TagManager:
   - Level
   - Entities
   - Player
-  - 
-  - 
+  - LightBlockers
+  - Throwables
   - 
   - 
   - 

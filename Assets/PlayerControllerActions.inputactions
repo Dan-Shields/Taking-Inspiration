@@ -1,5 +1,5 @@
 {
-    "name": "DreamJam",
+    "name": "PlayerControllerActions",
     "maps": [
         {
             "name": "Player",
@@ -25,6 +25,14 @@
                     "name": "Fire",
                     "type": "Button",
                     "id": "645ec342-203a-4752-9eb6-90fef965df53",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Throw Smoke",
+                    "type": "Button",
+                    "id": "d3389fb8-74aa-4942-ac65-1c6ba203e982",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
@@ -248,6 +256,17 @@
                     "processors": "",
                     "groups": "XR",
                     "action": "Fire",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "06a31856-c415-407e-ae51-ee7c2736bdb3",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Throw Smoke",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

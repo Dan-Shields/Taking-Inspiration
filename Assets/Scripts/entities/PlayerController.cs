@@ -9,6 +9,15 @@ namespace Entities {
     [RequireComponent(typeof(Collider2D))]
     public class PlayerController : BaseEntity
     {
+        [Header("References")]
+        public Grid Grid;
+        public GameObject SmokeThrowablePrefab;
+        public Camera Camera;
+
+        [Header("Variables")]
+        public float ThrowSpeedMultiplier = 1.0f;
+        public float MaxThrowSpeed = 2.0f;
+
         private MoveState moveState = MoveState.Idle;
         private MoveDirection moveDirection = MoveDirection.Down;
 
@@ -23,7 +32,7 @@ namespace Entities {
         private bool sliding = false;
         private bool justStartedSliding = false;
 
-        public Grid Grid;
+        
         private Tilemap tilemap;
 
         void Awake()
@@ -118,6 +127,25 @@ namespace Entities {
         public void OnDetection()
         {
             this.transform.position = this.startPosition;
+        }
+
+        public void ThrowSmoke(InputAction.CallbackContext context) {
+            if (context.started && this.SmokeThrowablePrefab)
+            {
+                GameObject thrownSmoke = Instantiate(SmokeThrowablePrefab, this.transform.position, Quaternion.identity);
+                Rigidbody2D smokeRb = thrownSmoke.GetComponent<Rigidbody2D>();
+
+                if (smokeRb)
+                {
+                    Vector2 mousePos = Mouse.current.position.ReadValue();
+                    Vector2 playerToMouseVector = this.Camera.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, this.transform.position.z)) - this.transform.position;
+                    Vector2 initialVelocity = Vector2.ClampMagnitude(playerToMouseVector * this.ThrowSpeedMultiplier, this.MaxThrowSpeed);
+                    smokeRb.velocity = initialVelocity;
+                    smokeRb.angularVelocity = Random.Range(-360f, 360f);
+                } else {
+                    Destroy(thrownSmoke);
+                }
+            }
         }
     }
 

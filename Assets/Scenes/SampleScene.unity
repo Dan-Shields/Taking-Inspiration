@@ -313,7 +313,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294966783
+    m_Bits: 2147483647
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -7759,6 +7759,18 @@ PrefabInstance:
       propertyPath: playerController
       value: 
       objectReference: {fileID: 1541490391}
+    - target: {fileID: 5136856377403160319, guid: e230813a85c55f249a4dd9bb2dd49b53, type: 3}
+      propertyPath: m_Intensity
+      value: 1.74
+      objectReference: {fileID: 0}
+    - target: {fileID: 5136856377403160319, guid: e230813a85c55f249a4dd9bb2dd49b53, type: 3}
+      propertyPath: m_NormalMapQuality
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5136856377403160319, guid: e230813a85c55f249a4dd9bb2dd49b53, type: 3}
+      propertyPath: m_NormalMapDistance
+      value: 2.51
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e230813a85c55f249a4dd9bb2dd49b53, type: 3}
 --- !u!1 &1541490390
@@ -7798,6 +7810,10 @@ MonoBehaviour:
   SpritePrefix: 
   Speed: 3
   Grid: {fileID: 1989961692}
+  SmokeThrowablePrefab: {fileID: 6236651122250331723, guid: 16a0d6368be41194bb6f148891f76d83, type: 3}
+  Camera: {fileID: 519420031}
+  ThrowSpeedMultiplier: 3
+  MaxThrowSpeed: 10
 --- !u!212 &1541490392
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7858,7 +7874,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1541490390}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 26, y: -9.23, z: 5}
+  m_LocalPosition: {x: 35.31, y: -22.2, z: 5}
   m_LocalScale: {x: 6, y: 6, z: 6}
   m_Children:
   - {fileID: 519420032}
@@ -7957,8 +7973,24 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 65bc48c5-aeac-43b1-a8c2-58d5eccbb997
     m_ActionName: UI/TrackedDeviceOrientation
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1541490391}
+        m_TargetAssemblyTypeName: Entities.PlayerController, Assembly-CSharp
+        m_MethodName: ThrowSmoke
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: d3389fb8-74aa-4942-ac65-1c6ba203e982
+    m_ActionName: Player/Throw Smoke[/Keyboard/e]
   m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
+  m_DefaultControlScheme: Keyboard&Mouse
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
@@ -8123,11 +8155,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7648159974980484121, guid: bfc50ad1a8cd8704b89f82d7fa3a3278, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 9.33
+      value: 10.54
       objectReference: {fileID: 0}
     - target: {fileID: 7648159974980484121, guid: bfc50ad1a8cd8704b89f82d7fa3a3278, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -6.84
+      value: -14.01
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bfc50ad1a8cd8704b89f82d7fa3a3278, type: 3}

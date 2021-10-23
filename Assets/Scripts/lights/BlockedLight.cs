@@ -14,8 +14,8 @@ namespace Lights
         private bool inited = false;
         private Light2D Light;
         
-        // Default this to Player and Level layers
-        private int linecastLayerFilter = (1 << 6) | (1 << 8);
+        // Default this to Player, Level and LightBlocker layers
+        private int linecastLayerFilter = (1 << 6) | (1 << 8) | (1 << 9);
         private RaycastHit2D[] linecastHits = new RaycastHit2D[1];
 
         protected override void OnAwake()
