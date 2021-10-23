@@ -6,19 +6,21 @@ public class WalkPath : MonoBehaviour
 {
     public List<Vector2> points;
 
+    private Vector2 start;
     private Vector2 direction;
     private int index = 0;
     private float segmentLength;
 
     void Start()
     {
+        this.start = this.transform.position;
+        this.points.Insert(0, new Vector2(0.0f, 0.0f));
         this.StartSegment();
     }
 
-    Vector2 Point(int i)
+    private Vector2 Point(int i)
     {
-        return this.points[i % this.points.Count];
-
+        return this.start + this.points[i % this.points.Count];
     }
 
     void StartSegment()
