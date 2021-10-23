@@ -18,11 +18,7 @@ public class WalkPath : MonoBehaviour
     Vector2 Point(int i)
     {
         return this.points[i % this.points.Count];
-    }
 
-    Vector2 Position()
-    {
-        return (Vector2)this.transform.position;
     }
 
     void StartSegment()
