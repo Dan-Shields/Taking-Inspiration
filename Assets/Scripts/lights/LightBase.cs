@@ -3,25 +3,25 @@ using UnityEngine.Experimental.Rendering.Universal;
 
 namespace Lights
 {
-	public class LightBase : MonoBehaviour
-	{
-		public float AnimSpeed = 1;
-		private Animation Animation;
+    public class LightBase : MonoBehaviour
+    {
+        public float AnimSpeed = 1;
+        private Animation Animation;
 
-		void Awake()
-		{
-			this.Animation = this.GetComponent<Animation>();
-			if (this.Animation)
-			{
-				foreach (AnimationState state in this.Animation)
-				{
-					state.speed = this.AnimSpeed;
-				}
-			}
+        void Awake()
+        {
+            this.Animation = this.GetComponent<Animation>();
+            if (this.Animation)
+            {
+                foreach (AnimationState state in this.Animation)
+                {
+                    state.speed = this.AnimSpeed;
+                }
+            }
 
-			this.OnAwake();
-		}
+            this.OnAwake();
+        }
 
-		protected virtual void OnAwake() { }
-	}
+        protected virtual void OnAwake() { }
+    }
 }
