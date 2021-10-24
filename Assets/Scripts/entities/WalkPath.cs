@@ -4,6 +4,7 @@ using UnityEngine;
 public class WalkPath : MonoBehaviour
 {
     public List<Vector2> points;
+    public float moveSpeed = 1.0f;
 
     private Vector2 start;
     private Vector2 direction;
@@ -39,7 +40,7 @@ public class WalkPath : MonoBehaviour
             this.index += 1;
             this.StartSegment();
         }
-        this.transform.position += (Vector3) this.direction * 0.2f * Time.fixedDeltaTime;
+        this.transform.position += (Vector3) this.direction * this.moveSpeed * Time.fixedDeltaTime;
         float angleDiff = Vector2.Angle(this.lightT.up, this.direction);
         this.lightT.Rotate(0.0f, 0.0f, angleDiff * 2.0f * Time.fixedDeltaTime);
     }
