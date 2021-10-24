@@ -41,7 +41,7 @@ public class WalkPath : MonoBehaviour
             this.StartSegment();
         }
         this.transform.position += (Vector3) this.direction * this.moveSpeed * Time.fixedDeltaTime;
-        float angleDiff = Vector2.Angle(this.lightT.up, this.direction);
+        float angleDiff = Vector2.SignedAngle(this.lightT.up, this.direction);
         this.lightT.Rotate(0.0f, 0.0f, angleDiff * 2.0f * Time.fixedDeltaTime);
     }
 }
