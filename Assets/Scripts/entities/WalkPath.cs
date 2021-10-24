@@ -10,11 +10,13 @@ public class WalkPath : MonoBehaviour
     private Vector2 direction;
     private int index = 0;
     private float segmentLength;
+    private Transform lightT;
 
     void Start()
     {
         this.start = this.transform.position;
-        this.points.Insert(0, new Vector2(0.0f, 0.0f));
+        this.points.Insert(0, Vector2.zero);
+        this.lightT = this.transform.Find("Flashlight");
         this.StartSegment();
     }
 
@@ -39,5 +41,7 @@ public class WalkPath : MonoBehaviour
             this.StartSegment();
         }
         this.transform.position += (Vector3) this.direction * 0.2f * Time.fixedDeltaTime;
+        float angleDiff = Vector2.Angle(this.lightT.up, this.direction);
+        this.lightT.Rotate(0.0f, 0.0f, angleDiff * 2.0f * Time.fixedDeltaTime);
     }
 }
