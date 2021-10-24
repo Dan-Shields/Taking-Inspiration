@@ -1,0 +1,30 @@
+using UnityEngine;
+
+namespace Lights {
+    public class FullRotate : MonoBehaviour
+    {
+        [Header("Constants")]
+        public float rotationPeriod = 5f;
+
+        private float startTime;
+        private float initialRotation;
+
+        void Awake()
+        {
+            this.startTime = Time.time;
+            this.initialRotation = this.transform.rotation.eulerAngles.z;
+        }
+
+        // Update is called once per frame
+        void Update()
+        {
+            float t = (Time.time - this.startTime) / this.rotationPeriod;
+
+            if (t >= 1f) {
+                this.startTime = Time.time;
+            }
+            
+            transform.rotation = Quaternion.Euler(0, 0, Mathf.Lerp(0f, 360f, t) + this.initialRotation);
+        }
+    }
+}
