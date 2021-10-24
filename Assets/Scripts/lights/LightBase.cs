@@ -1,12 +1,11 @@
 using UnityEngine;
-using UnityEngine.Experimental.Rendering.Universal;
 
 namespace Lights
 {
     public class LightBase : MonoBehaviour
     {
-        public float AnimSpeed = 1;
         private Animation Animation;
+        public float AnimSpeed = 1;
 
         void Awake()
         {

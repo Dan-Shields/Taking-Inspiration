@@ -13,8 +13,9 @@ namespace Entities {
         public Grid Grid;
         public GameObject SmokeThrowablePrefab;
         public Camera Camera;
+        private Tilemap tilemap;
 
-        [Header("Variables")]
+        [Header("Constants")]
         public float ThrowSpeedMultiplier = 1.0f;
         public float MaxThrowSpeed = 2.0f;
 
@@ -31,9 +32,6 @@ namespace Entities {
 
         private bool sliding = false;
         private bool justStartedSliding = false;
-
-        
-        private Tilemap tilemap;
 
         void Awake()
         {

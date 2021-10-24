@@ -4,18 +4,17 @@ using UnityEngine.U2D;
 namespace Entities {
     public class BaseEntity : MonoBehaviour
     {
+        [Header("References")]
         public SpriteAtlas Atlas;
+        protected SpriteRenderer spriteRenderer;
+        protected new Rigidbody2D rigidbody;
+
         public string SpritePrefix = "";
 
         [Range(1, 20)]
         public float Speed = 1;
 
         protected int nextSpriteIndex = 0;
-
-        // Component references
-        protected SpriteRenderer spriteRenderer;
-        protected new Rigidbody2D rigidbody;
-
         protected Vector2 moveVector = new Vector2();
 
         void Start()

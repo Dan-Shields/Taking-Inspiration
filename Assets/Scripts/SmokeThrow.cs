@@ -3,6 +3,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class SmokeThrow : MonoBehaviour
 {
+    [Header("References")]
     public GameObject activeSmoke;
 
     private new Rigidbody2D rigidbody;

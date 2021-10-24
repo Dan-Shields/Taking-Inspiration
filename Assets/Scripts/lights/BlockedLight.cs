@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Experimental.Rendering.Universal;
 using Entities;
@@ -9,10 +8,11 @@ namespace Lights
     [RequireComponent(typeof(Light2D))]
     public class BlockedLight : LightBase
     {
+        [Header("References")]
         public PlayerController playerController;
+        private Light2D Light;
 
         private bool inited = false;
-        private Light2D Light;
         
         // Default this to Player, Level and LightBlocker layers
         private int linecastLayerFilter = (1 << 6) | (1 << 8) | (1 << 9);
@@ -27,7 +27,6 @@ namespace Lights
                 this.inited = true;
             }
         }
-
 
         void FixedUpdate()
         {
