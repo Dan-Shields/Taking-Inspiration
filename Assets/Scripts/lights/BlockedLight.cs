@@ -1,15 +1,12 @@
 using UnityEngine;
 using UnityEngine.Experimental.Rendering.Universal;
-using Entities;
-
 
 namespace Lights
 {
     [RequireComponent(typeof(Light2D))]
-    public class BlockedLight : LightBase
+    public class BlockedLight : MonoBehaviour
     {
-        [Header("References")]
-        public PlayerController playerController;
+        private Entities.PlayerController playerController;
         private Light2D Light;
 
         private bool inited = false;
@@ -18,9 +15,11 @@ namespace Lights
         private int linecastLayerFilter = (1 << 6) | (1 << 8) | (1 << 9);
         private RaycastHit2D[] linecastHits = new RaycastHit2D[1];
 
-        protected override void OnAwake()
+        void Awake()
         {
             this.Light = this.GetComponent<Light2D>();
+
+            this.playerController = GameObject.FindObjectOfType<Entities.PlayerController>(false);
 
             if (this.playerController && this.Light.lightType == Light2D.LightType.Point)
             {
