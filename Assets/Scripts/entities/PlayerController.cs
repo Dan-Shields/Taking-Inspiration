@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Tilemaps;
+using Collectables;
 
 namespace Entities {
     [RequireComponent(typeof(SpriteRenderer))]
@@ -32,6 +33,8 @@ namespace Entities {
 
         private bool sliding = false;
         private bool justStartedSliding = false;
+
+        private int smokeCount = 0;
 
         void Awake()
         {
@@ -119,6 +122,15 @@ namespace Entities {
             else if (collider.tag == "Finish")
             {
                 Debug.Log("Sorry Mario - the princess is in another castle!");
+            } else if (collider.tag == "Collectable")
+            {
+                Collectable collectable = collider.gameObject.GetComponent<Collectable>();
+
+                if (collectable.type == CollectableType.Smoke)
+                {
+                    this.smokeCount++;
+                    Destroy(collider.gameObject);
+                }
             }
         }
 
@@ -128,7 +140,7 @@ namespace Entities {
         }
 
         public void ThrowSmoke(InputAction.CallbackContext context) {
-            if (context.started && this.SmokeThrowablePrefab)
+            if (context.started && this.SmokeThrowablePrefab && this.smokeCount > 0)
             {
                 GameObject thrownSmoke = Instantiate(SmokeThrowablePrefab, this.transform.position, Quaternion.identity);
                 Rigidbody2D smokeRb = thrownSmoke.GetComponent<Rigidbody2D>();
@@ -140,10 +152,16 @@ namespace Entities {
                     Vector2 initialVelocity = Vector2.ClampMagnitude(playerToMouseVector * this.ThrowSpeedMultiplier, this.MaxThrowSpeed);
                     smokeRb.velocity = initialVelocity;
                     smokeRb.angularVelocity = Random.Range(-360f, 360f);
+                    this.smokeCount--;
                 } else {
                     Destroy(thrownSmoke);
                 }
             }
+        }
+
+        void OnGUI()
+        {
+            GUI.Label(new Rect(5, 5, 150, 50), $"Smokes: {this.smokeCount}");
         }
     }
 

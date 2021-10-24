@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Detector
   - SlippyFloor
+  - Collectable
   layers:
   - Default
   - TransparentFX
