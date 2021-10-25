@@ -9,6 +9,8 @@ namespace Entities {
         protected SpriteRenderer spriteRenderer;
         protected new Rigidbody2D rigidbody;
 
+
+        [Header("Constants")]
         public string SpritePrefix = "";
 
         [Range(1, 20)]

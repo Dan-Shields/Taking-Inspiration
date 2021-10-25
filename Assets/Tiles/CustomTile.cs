@@ -6,8 +6,15 @@ using UnityEditor;
 
 public class CustomTile : Tile
 {
+    public Sprite overlaySprite;
     public override bool StartUp(Vector3Int location, ITilemap tilemap, GameObject go)
     {
+        if (go && this.overlaySprite)
+        {
+            SpriteRenderer sr = go.GetComponentInChildren<SpriteRenderer>();
+
+            if (sr) sr.sprite = this.overlaySprite;
+        }
 
         return true;
     }
