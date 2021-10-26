@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5155f23803f4278418e891c6561353fd, type: 3}
   m_Name: Wall_Top_Blue
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: 240716511482401286, guid: b52393e9230c3994abfd1a69ff077149, type: 3}
+  m_Sprite: {fileID: 184960948609397530, guid: cadb743737fbffb4dbcf6bf7920191a2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1
@@ -34,3 +34,4 @@ MonoBehaviour:
   m_InstancedGameObject: {fileID: 4375199656280676158, guid: a218324e6fa609540b44a41188025084, type: 3}
   m_Flags: 1
   m_ColliderType: 2
+  overlaySprite: {fileID: 0}

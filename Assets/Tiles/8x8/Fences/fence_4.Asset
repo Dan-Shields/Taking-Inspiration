@@ -34,4 +34,4 @@ MonoBehaviour:
   m_InstancedGameObject: {fileID: 1584899976802567507, guid: 42a5608a81d93051d97925a0767b4b09, type: 3}
   m_Flags: 1
   m_ColliderType: 0
-  overlaySprite: {fileID: -351409804319473372, guid: b52393e9230c3994abfd1a69ff077149, type: 3}
+  overlaySprite: {fileID: 322703155616851640, guid: cadb743737fbffb4dbcf6bf7920191a2, type: 3}

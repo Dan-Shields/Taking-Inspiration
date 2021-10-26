@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5155f23803f4278418e891c6561353fd, type: 3}
   m_Name: Floor_Slippy
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: -2281657408769596110, guid: b52393e9230c3994abfd1a69ff077149, type: 3}
+  m_Sprite: {fileID: -6701719699407285129, guid: cadb743737fbffb4dbcf6bf7920191a2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1
@@ -34,3 +34,4 @@ MonoBehaviour:
   m_InstancedGameObject: {fileID: 5420514755297712076, guid: e28bc8f80ac98714a94be683a468a0cc, type: 3}
   m_Flags: 1
   m_ColliderType: 0
+  overlaySprite: {fileID: 0}
