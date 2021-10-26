@@ -63,7 +63,7 @@ namespace Entities {
             {
                 Tile tile = this.tilemap.GetTile<Tile>(this.Grid.WorldToCell(this.transform.position));
 
-                if (tile.gameObject)
+                if (tile && tile.gameObject)
                 {
                     this.justStartedSliding = tile.gameObject.tag == "SlippyFloor" && !this.sliding;
                     this.sliding = tile.gameObject.tag == "SlippyFloor";
