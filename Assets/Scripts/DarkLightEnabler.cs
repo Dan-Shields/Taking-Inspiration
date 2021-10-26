@@ -1,7 +1,7 @@
 using UnityEngine;
 
-// This script is here simply to loop through all renderers and enable vision culling if it's an available shader property
-public class PlayerVisionController : MonoBehaviour
+// This script is here simply to loop through all renderers and enable masking if it's an available shader property
+public class DarkLightEnabler : MonoBehaviour
 {
     void Awake()
     {
@@ -11,9 +11,9 @@ public class PlayerVisionController : MonoBehaviour
         {
             foreach (Material material in renderer.materials)
             {
-                if (material.HasProperty("EnableCulling"))
+                if (material.HasProperty("EnableDarkLightMask"))
                 {
-                    material.SetInt("EnableCulling", 1);
+                    material.SetInt("EnableDarkLightMask", 1);
                 }
             }
         }
