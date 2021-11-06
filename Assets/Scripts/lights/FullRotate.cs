@@ -5,6 +5,7 @@ namespace Lights {
     {
         [Header("Constants")]
         public float rotationPeriod = 5f;
+        public bool rotateClockwise = false;
 
         private float startTime;
         private float initialRotation;
@@ -19,6 +20,7 @@ namespace Lights {
         void Update()
         {
             float t = (Time.time - this.startTime) / this.rotationPeriod;
+            t = this.rotateClockwise ? 1f - t : t;
 
             if (t >= 1f) {
                 this.startTime = Time.time;
