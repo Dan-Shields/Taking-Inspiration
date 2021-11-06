@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 8305257831124719307}
   - component: {fileID: 8305257831124719306}
   - component: {fileID: 476958419580376763}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Flashlight
-  m_TagString: Untagged
+  m_TagString: Detector
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -53,7 +53,7 @@ MonoBehaviour:
   m_Intensity: 1.74
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
-  m_ApplyToSortingLayers: 00000000
+  m_ApplyToSortingLayers: d95a124d
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
