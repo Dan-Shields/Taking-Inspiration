@@ -164,11 +164,6 @@ namespace Entities {
                 }
             }
         }
-
-        void OnGUI()
-        {
-            GUI.Label(new Rect(5, 5, 150, 50), $"Smokes: {this.smokeCount}");
-        }
     }
 
     enum MoveDirection {
