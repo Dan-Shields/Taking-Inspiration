@@ -19,6 +19,7 @@ namespace Entities {
         [Header("Constants")]
         public float ThrowSpeedMultiplier = 1.0f;
         public float MaxThrowSpeed = 2.0f;
+        public float IceGrip = 1.0f;
 
         private MoveState moveState = MoveState.Idle;
         private MoveDirection moveDirection = MoveDirection.Down;
@@ -77,7 +78,7 @@ namespace Entities {
                 {
                     this.rigidbody.velocity = this.moveVector;
                 } else {
-                    this.rigidbody.velocity += this.moveVector * Time.fixedDeltaTime;
+                    this.rigidbody.velocity += this.moveVector * Time.fixedDeltaTime * this.IceGrip;
                 }
             } else {
                 Vector2 newPosition = this.rigidbody.position + (this.moveVector * Time.fixedDeltaTime);
