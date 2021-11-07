@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 320944234645770960}
   - component: {fileID: 320944234645770959}
   - component: {fileID: 320944235108334497}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: Spot
   m_TagString: Detector
   m_Icon: {fileID: 0}
@@ -68,7 +68,7 @@ MonoBehaviour:
   m_Intensity: 0.8
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
-  m_ApplyToSortingLayers: d95a124d
+  m_ApplyToSortingLayers: 00000000
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
