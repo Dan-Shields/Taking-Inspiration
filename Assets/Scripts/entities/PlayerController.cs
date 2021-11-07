@@ -59,7 +59,7 @@ namespace Entities {
 
         protected override void FixedUpdate()
         {
-            
+
             if (this.tilemap)
             {
                 Tile tile = this.tilemap.GetTile<Tile>(this.Grid.WorldToCell(this.transform.position));
@@ -123,7 +123,12 @@ namespace Entities {
             else if (collider.tag == "Finish")
             {
                 Debug.Log("Sorry Mario - the princess is in another castle!");
-            } else if (collider.tag == "Collectable")
+            }
+            else if (collider.tag == "Checkpoint")
+            {
+                this.startPosition = new Vector3(collider.transform.position.x, collider.transform.position.y, this.transform.position.z);
+            }
+            else if (collider.tag == "Collectable")
             {
                 Collectable collectable = collider.gameObject.GetComponent<Collectable>();
 
