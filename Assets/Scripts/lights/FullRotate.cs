@@ -20,12 +20,12 @@ namespace Lights {
         void Update()
         {
             float t = (Time.time - this.startTime) / this.rotationPeriod;
-            t = this.rotateClockwise ? 1f - t : t;
 
             if (t >= 1f) {
                 this.startTime = Time.time;
             }
-            
+
+            t = this.rotateClockwise ? 1f - t : t;
             transform.rotation = Quaternion.Euler(0, 0, Mathf.Lerp(0f, 360f, t) + this.initialRotation);
         }
     }
