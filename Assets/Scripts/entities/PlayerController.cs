@@ -126,7 +126,7 @@ namespace Entities {
             }
             else if (collider.tag == "Checkpoint")
             {
-                this.startPosition = collider.transform.position;
+                this.startPosition = new Vector3(collider.transform.position.x, collider.transform.position.y, this.transform.position.z);
             }
             else if (collider.tag == "Collectable")
             {
