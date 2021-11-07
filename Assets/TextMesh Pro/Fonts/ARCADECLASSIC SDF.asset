@@ -517,9 +517,9 @@ MonoBehaviour:
     m_AtlasIndex: 0
   - m_Index: 26
     m_Metrics:
-      m_Width: 47
+      m_Width: 40.74
       m_Height: 54
-      m_HorizontalBearingX: -3
+      m_HorizontalBearingX: 11.7
       m_HorizontalBearingY: 61
       m_HorizontalAdvance: 59
     m_GlyphRect:
@@ -629,9 +629,9 @@ MonoBehaviour:
     m_AtlasIndex: 0
   - m_Index: 34
     m_Metrics:
-      m_Width: 35.39
+      m_Width: 34.23
       m_Height: 54
-      m_HorizontalBearingX: 3.3
+      m_HorizontalBearingX: 3.72
       m_HorizontalBearingY: 61
       m_HorizontalAdvance: 42.1
     m_GlyphRect:
@@ -881,9 +881,9 @@ MonoBehaviour:
     m_AtlasIndex: 0
   - m_Index: 52
     m_Metrics:
-      m_Width: 47
+      m_Width: 37.73
       m_Height: 54
-      m_HorizontalBearingX: -3
+      m_HorizontalBearingX: 4.3
       m_HorizontalBearingY: 61
       m_HorizontalAdvance: 59
     m_GlyphRect:
