@@ -41,6 +41,14 @@ namespace Entities {
 
         private int smokeCount = 0;
 
+        public List<GameObject> page1 = new List<GameObject>();
+        public List<GameObject> page2 = new List<GameObject>();
+
+        private int currentPage = 1;
+        private bool transitioning = false;
+
+        private bool loaded = false;
+
         void Awake()
         {
             this.startPosition = this.transform.position;
@@ -98,6 +106,7 @@ namespace Entities {
         }
 
         public void Move(InputAction.CallbackContext context) {
+            if (!loaded) return;
             if (context.canceled) {
                 this.moveVector = new Vector2();
                 this.moveState = MoveState.Idle;
@@ -185,6 +194,72 @@ namespace Entities {
                 }
             }
         }
+
+
+    public void Continue(InputAction.CallbackContext context) {
+        if (context.started && !this.transitioning) {
+            StartCoroutine("Transition");
+        }
+    }
+
+    IEnumerator Transition()
+    {
+        transitioning = true;
+
+        List<GameObject> page;
+        if (this.currentPage == 1) {
+            page = this.page1;
+        } else if (this.currentPage == 2) {
+            page = this.page2;
+        } else {
+            yield break;
+        }
+
+        for (float ft = 1f; ft >= -0.01f; ft -= 0.1f)
+        {
+            foreach (GameObject obj in page) {
+                TMP_Text textComp = obj.GetComponent<TMP_Text>();
+
+                if (!textComp) continue;
+
+                Color color = textComp.color;
+                color.a = ft;
+
+                textComp.color = color;
+            }
+            
+            yield return new WaitForSeconds(.1f);
+        }
+
+        this.currentPage++;
+
+        if (this.currentPage == 1) {
+            page = this.page1;
+        } else if (this.currentPage == 2) {
+            page = this.page2;
+        } else {
+            this.loaded = true;
+            yield break;
+        }
+
+        for (float ft = 0; ft <= 1.01f; ft += 0.1f)
+        {
+            foreach (GameObject obj in page) {
+                TMP_Text textComp = obj.GetComponent<TMP_Text>();
+
+                if (!textComp) continue;
+
+                Color color = textComp.color;
+                color.a = ft;
+
+                textComp.color = color;
+            }
+
+            yield return new WaitForSeconds(.1f);
+        }
+
+        transitioning = false;
+    }
     }
 
     enum MoveDirection {
