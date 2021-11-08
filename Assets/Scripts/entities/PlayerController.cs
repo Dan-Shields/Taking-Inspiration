@@ -1,7 +1,9 @@
 using System.Collections.Generic;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Tilemaps;
+using TMPro;
 using Collectables;
 
 namespace Entities {
@@ -14,6 +16,8 @@ namespace Entities {
         public Grid Grid;
         public GameObject SmokeThrowablePrefab;
         public Camera Camera;
+        public SpriteRenderer overlay;
+        public TMP_Text text;
         private Tilemap tilemap;
 
         [Header("Constants")]
@@ -122,7 +126,7 @@ namespace Entities {
             }
             else if (collider.tag == "Finish")
             {
-                Debug.Log("Sorry Mario - the princess is in another castle!");
+                StartCoroutine(Win());
             }
             else if (collider.tag == "Checkpoint")
             {
@@ -137,6 +141,23 @@ namespace Entities {
                     this.smokeCount++;
                     Destroy(collider.gameObject);
                 }
+            }
+        }
+
+        private IEnumerator Win()
+        {
+            Color col;
+            for (int i=0; i<=100; i++)
+            {
+                col = text.color;
+                col.a = i * 0.01f;
+                text.color = col;
+
+                col = overlay.color;
+                col.a = i * 0.01f;
+                overlay.color = col;
+
+                yield return null;
             }
         }
 
